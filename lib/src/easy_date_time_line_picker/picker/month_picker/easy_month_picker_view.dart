@@ -137,13 +137,13 @@ class _EasyMonthPickerViewState extends State<EasyMonthPickerView> {
                 children: <Widget>[
                   const Spacer(),
                   IconButton(
-                    icon: const Icon(Icons.chevron_left),
+                    icon: const Icon(Icons.chevron_left, size: 20),
                     color: controlColor,
                     onPressed:
                         _isDisplayingFirstYear ? null : _handlePreviousYear,
                   ),
                   IconButton(
-                    icon: const Icon(Icons.chevron_right),
+                    icon: const Icon(Icons.chevron_right, size: 20),
                     color: controlColor,
                     onPressed: _isDisplayingLastYear ? null : _handleNextYear,
                   ),
