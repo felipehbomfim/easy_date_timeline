@@ -195,12 +195,14 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
 
     // Dispara callback externo, se existir
     if (widget.onMonthChange != null) {
+      final currentYear = _focusedDateListener.value?.year ?? DateTime.now().year;
+
       final newDate = DateTime(
-        month!.year,
-        month.vale, // vale é o mês inteiro (1–12) vindo da lib
+        currentYear,   // ✅ pega o ano atual do foco
+        month!.vale,   // ✅ vale = mês
         1,
       );
-      widget.onMonthChange!(newDate);
+      widget.onMonthChange?.call(newDate);
     }
   }
 
