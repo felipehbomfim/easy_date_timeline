@@ -193,17 +193,19 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
       _easyMonth = month!;
     });
 
-    // Dispara callback externo, se existir
-    if (widget.onMonthChange != null) {
-      final currentYear = _focusedDateListener.value?.year ?? DateTime.now().year;
+    // cria a nova data (dia 1 do mês selecionado)
+    final newDate = DateTime(
+      _focusedDateListener.value?.year ?? DateTime.now().year,
+      month!.vale,
+      1,
+    );
 
-      final newDate = DateTime(
-        currentYear,   // ✅ pega o ano atual do foco
-        month!.vale,   // ✅ vale = mês
-        1,
-      );
-      widget.onMonthChange?.call(newDate);
-    }
+    // força o foco programaticamente
+    _focusedDateListener.value = newDate;
+
+    // dispara callback externo se existir
+    widget.onMonthChange?.call(newDate);
+    widget.onDateChange?.call(newDate);
   }
 
   /// The method returns a boolean value, which indicates whether the month picker
