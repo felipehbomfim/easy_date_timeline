@@ -67,10 +67,10 @@ class TimeLineWidget extends StatefulWidget {
   final String locale;
 
   @override
-  State<TimeLineWidget> createState() => _TimeLineWidgetState();
+  TimeLineWidgetState createState() => TimeLineWidgetState(); // 👈 nome público
 }
 
-class _TimeLineWidgetState extends State<TimeLineWidget> {
+class TimeLineWidgetState extends State<TimeLineWidget> {
   EasyDayProps get _dayProps => widget.dayProps;
   EasyTimeLineProps get _timeLineProps => widget.timeLineProps;
   bool get _isLandscapeMode => _dayProps.landScapeMode;
@@ -113,6 +113,15 @@ class _TimeLineWidgetState extends State<TimeLineWidget> {
     return (offset * _dayOffsetConstrains) +
         (offset * _timeLineProps.separatorPadding) +
         adjustedHPadding;
+  }
+
+  void scrollToDate(DateTime date) {
+    final offset = _calculateDateOffset(date);
+    _controller.animateTo(
+      offset,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
   }
 
   @override
