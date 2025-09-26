@@ -249,7 +249,7 @@ class EasyDayWidget extends StatelessWidget {
       monthStyle = todayMonthStrStyle;
     }
     return DayInfoText(
-      text: EasyDateFormatter.shortMonthName(date, locale).toUpperCase(),
+      text: EasyDateFormatter.shortMonthName(date, locale),
       textStyle: monthStyle,
     );
   }
@@ -324,7 +324,7 @@ class EasyDayWidget extends StatelessWidget {
       dayStrStyle = todayStrStyle;
     }
     return DayInfoText(
-      text: EasyDateFormatter.shortDayName(date, locale).toUpperCase(),
+      text: EasyDateFormatter.shortDayName(date, locale),
       textStyle: dayStrStyle,
     );
   }
