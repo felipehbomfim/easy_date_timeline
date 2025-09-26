@@ -57,8 +57,8 @@ class _EasyDateTimeLineState extends State<EasyDateTimeLine> {
 
   late ValueNotifier<DateTime?> _focusedDateListener;
 
-  final GlobalKey<_TimeLineWidgetState> _timeLineKey =
-  GlobalKey<_TimeLineWidgetState>();
+  final GlobalKey<TimeLineWidgetState> _timeLineKey =
+  GlobalKey<TimeLineWidgetState>();
 
   DateTime get initialDate => widget.initialDate;
 
